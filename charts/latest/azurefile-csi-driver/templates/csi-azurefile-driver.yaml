@@ -14,4 +14,6 @@ spec:
   volumeLifecycleModes:
     - Persistent
     - Ephemeral
-  fsGroupPolicy: ReadWriteOnceWithFSType
+  {{- if .Values.feature.enableFSGroupPolicy}}
+  fsGroupPolicy: File
+  {{- end}}
